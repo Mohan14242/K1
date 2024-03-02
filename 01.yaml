@@ -7,4 +7,6 @@ spec:
   containers:
   - name: nginx 
     image: nginx 
+  - name: sidecar 
+    image: sidecar
 
