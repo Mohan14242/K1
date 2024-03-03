@@ -1,12 +1,4 @@
 apiVersion: v1 
-kind: Pod 
-metadata:
-  name: chiru-mohan
-  namespace: my-namespace
-spec: 
-  containers:
-  - name: nginx 
-    image: nginx 
-  - name: sidecar 
-    image: sidecar
-
+kind: Namespace 
+metadata: 
+  name: dev-namespace 
