@@ -12,3 +12,9 @@ spec:
         configMapKeyRef: 
           name: course-config 
           key : name 
+    - name: address 
+      valueFrom: 
+        configMapKeyRef:
+          name: course-config
+          key: address
+    
