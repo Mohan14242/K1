@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: cofnig-map 
+spec: 
+  containers:
+  - name: nginx 
+    env: 
+    - name: courses 
+      valueFrom : 
+        configMapKeyRef: 
+          name: course-config 
+          key : name 
+          
