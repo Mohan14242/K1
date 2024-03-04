@@ -7,7 +7,7 @@ spec:
     - name: nginx 
       image: nginx 
       env: 
-      - name: demo greeting 
+      - name: demo_greeting 
         value : "thhis is the mohane who are you "
-      - name: name 
+      - name: name_mohan
         value: "this is the mohan who are you "
