@@ -7,8 +7,8 @@ metadata:
     status: waste 
 spec:
   containers:
-  - name: nginx 
-    image: nginx 
+  - name: sidecar-1
+    image: sidecar
     ports:
       - containerPort: 80 
         name: http
