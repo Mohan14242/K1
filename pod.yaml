@@ -4,6 +4,6 @@ metadata:
   name: multicontaineer-pod 
 spec: 
   containers:
-    name: nginx 
+  - name: nginx 
     image: nginx 
   
