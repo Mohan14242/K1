@@ -1,9 +1,13 @@
-apiVersion: v1 
-kind: Pod 
-metadata: 
-  name: multicontaineer-pod 
-spec: 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-sidecar
+spec:
   containers:
-  - name: sidecar 
-    image: sidecar
-  
+  - name: main-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: sidecar-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello from the sidecar container && sleep 3600']
