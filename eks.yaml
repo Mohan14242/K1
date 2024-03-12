@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: eks-spot-cluster
-  region: us-east-1
+  region: us-east-1b
 
 managedNodeGroups: # this is also completely managed by AWS
   - name: spot
