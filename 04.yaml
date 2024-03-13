@@ -1,0 +1,23 @@
+apiVersion: v1 
+kind: pod 
+metadata: 
+  name: pods-multi 
+  namespace: dev-pod
+  labels: 
+    name: mohan 
+    purpose: nothign just for fun 
+    fuck: not yet
+spec: 
+  containers:
+    - name: nginx 
+      image: nginx 
+      ports:
+        - containerPort: 80 
+      resources: 
+        requests: 
+          cpu: "100m"
+          memory: "128Mi"
+        limits: 
+          cpu: "200m"
+          memory: "256Mi"
+  
