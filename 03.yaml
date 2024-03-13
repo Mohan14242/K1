@@ -10,7 +10,7 @@ spec:
       ports:
         - containerPort: 80 
     - name: sideacar 
-      image: mongodb
+      image: nginx
       
 
     
