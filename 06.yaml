@@ -7,7 +7,7 @@ spec:
   containers:
     - name: mohan
       image: nginx
-      env: 
+      env : 
       - name: name
         valueFrom: 
           configMapKeyRef: 
