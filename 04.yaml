@@ -19,4 +19,9 @@ spec:
         limits: 
           cpu: "200m"
           memory: "256Mi"
+      env: 
+      - name: dev 
+        value: this is an dev environemt
+      - name: purpose
+        value: best way to do it 
   
