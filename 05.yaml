@@ -1,9 +1,0 @@
-apiVersion: v1 
-kind: ConfigMap 
-metadata:
-  name: mohan-pod 
-data: 
-  name: mohan 
-  age: "25" 
-  virgin: "yes"
-  masturbation: "daily"
