@@ -8,6 +8,7 @@ spec:
     - name: nginx 
       image: nginx 
       env: 
+      - name: name
         valueFrom: 
           configMapKeyRef: 
             name: mohan-pod 
