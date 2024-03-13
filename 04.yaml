@@ -1,7 +1,7 @@
 apiVersion: v1 
 kind: Pod
 metadata: 
-  name: pods-multi 
+  name: pods-mul
   namespace: dev-pod
   labels: 
     name: mohan 
