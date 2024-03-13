@@ -4,6 +4,6 @@ metadata:
   name: mohan-pod 
 data: 
   name: mohan 
-  age: 25 
-  vigin: yes 
-  masterbation: daily 
+  age: "25" 
+  virgin: "yes"
+  masturbation: "daily"
