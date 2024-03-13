@@ -5,7 +5,7 @@ metadata:
   namespace: dev-pod
   labels:
     name: mohan 
-    age: 25 
+    age: six
 spec: 
   containers: 
     - name: nginx 
