@@ -1,12 +1,12 @@
 apiVersion: v1 
 kind: Pod 
 metadata:
-  name: mohan-pod1 
+  name: mohan-pod2
   namespace: dev-pod 
 spec: 
   containers:
-    - name: nginx 
-      image: nginx 
+    - name: mohan
+      image: nginx
       env: 
       - name: name
         valueFrom: 
