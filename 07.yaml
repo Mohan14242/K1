@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-pod
+  name: example-pod1
+  namespace: dev-pod
 spec:
   containers:
-    - name: my-container
-      image: my-image
+    - name: nginx
+      image: nginx
       env:
         - name: DATABASE_URL
           valueFrom:
