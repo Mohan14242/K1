@@ -5,8 +5,7 @@ metadata:
   namespace: dev-pod
   labels: 
     name: mohan 
-    purpose: nothign just for fun 
-    fuck: not yet
+    purpose: nothign 
 spec: 
   containers:
     - name: nginx 
