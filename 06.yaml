@@ -1,0 +1,14 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: mohan-pod1 
+  namespace: dev-pod 
+spec: 
+  containers:
+    - name: nginx 
+      image: nginx 
+      env: 
+        valuefrom: 
+          configMapKeyRef: 
+            name: mohan-pod 
+            key: name
