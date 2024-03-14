@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: deployment 
+metadata: 
+  name: user
+  namespace: dev 
+  labels:
+    app: user 
+    onwer: mohan 
+spec: 
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: user
+      owner: mohan 
+  template:
+    metadata:
+      name: user
+      labels: 
+        app: user
+        owner: mohan 
+    spec: 
+      containers:
+        - name: user
+          image: mohan9676/user:1.0.0.
+--- 
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: cluster2 
+  namespace: dev 
+spec: 
+  selector: 
+    app: user
+    owner: mohan 
+  ports: 
+    - name: user-port 
+      protocol: TCP 
+      port: 8080
+      targetPort: 8080
+--- 
+apiVersion: v1 
+kind: ConfigMap 
+metadata: 
+  name: config-user
+  namespace: dev 
+data: 
+  MONGO: "true"
+  MONGO_URL: "mongodb://cluster-ip:27017/catalogue"
+  REDIS_HOST: "cluster-ip1"
