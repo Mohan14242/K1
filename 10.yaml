@@ -4,6 +4,7 @@ metadata:
   name: node-port 
   namespace: dev
 spec: 
+  type: NodePort
   selector:
     name: mohan 
     age: six 

@@ -3,6 +3,9 @@ kind: Pod
 metadata: 
   name: simple-pod 
   namespace: dev
+  labels: 
+    name: mohan 
+    age: six
 spec: 
   containers: 
     - name: nginx 
