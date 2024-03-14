@@ -9,7 +9,7 @@ metadata:
 spec: 
   replicas: 7 
   selector: 
-    matchlabels: 
+    matchLabels: 
       name: frontend 
       database: mysql 
   template: 
