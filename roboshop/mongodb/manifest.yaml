@@ -9,10 +9,11 @@ metadata:
     kind: database 
 spec: 
   replicas: 1
-  matchLabels:
-    name: mongodb 
-    kind: database 
-    owner: mohan 
+  selector:
+    matchLabels:
+      name: mongodb 
+      kind: database 
+      owner: mohan 
   template:
     metadata: 
       name: mongodb 
