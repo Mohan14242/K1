@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Pod 
 metadata: 
   name: simple-pod 
-  metadata: dev-env 
+  namespace: dev
 spec: 
   containers: 
     - name: nginx 
       image: nginx 
       ports: 
         - containerPort: 80 
-        
+
 
