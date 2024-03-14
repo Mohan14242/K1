@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalogue-data
+  name: catalogue
   namespace: dev
   labels:
     name: catalogue
@@ -14,7 +14,7 @@ spec:
       owner: mohan
   template:
     metadata:
-      name: catalogue-pod
+      name: catalogue
       labels:
         name: catalogue
         owner: mohan
