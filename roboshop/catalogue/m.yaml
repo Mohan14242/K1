@@ -23,7 +23,7 @@ spec:
         - name: catalogue
           image: mohan9676/catalogue:1.0.0
           envFrom:
-          - confiMapRef:
+          - configMapRef:
             name: catalogue-data
 ---
 apiVersion: v1
