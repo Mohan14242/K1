@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: mohan-replica
+  labels: 
+    app: frontend 
+    creator: mohan 
+spec: 
+  replcas: 7 
+  selector: 
+    matchlabels: 
+      name: frontend 
+      database: mysql 
+  template: 
+    metadata:
+      name: mohan-pod 
+      labels:
+        name: frontend1 
+        database: mysql 
+    spec: 
+      containers:
+        - name: nginx 
+          image: nginx 
