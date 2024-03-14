@@ -143,7 +143,7 @@ spec:
           - key: nginx.conf
             path: nginx.conf
       containers:
-      - name: catalogue
+      - name: web
         image: mohan9676/web:1.0.0
         volumeMounts:
         - name: nginx-conf # name of the volume you created above
