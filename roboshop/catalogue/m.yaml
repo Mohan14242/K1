@@ -1,43 +1,41 @@
 apiVersion: apps/v1
-kind: Deployment 
-metadata: 
-  name: catalogue-deployment 
-  namespace: dev 
-  labels: 
+kind: Deployment
+metadata:
+  name: catalogue-deployment
+  namespace: dev
+  labels:
     app: catalogue
-    owner: mohan 
-spec: 
-  replicas: 1 
-  selector: 
-    matchLabels:
-      name: catalogue 
-      owner: mohan 
-  template: 
-    metadata:
-      name: catalogue-pod 
-      labels: 
-        name: catalogue
-        owner: mohan 
-    spec: 
-      containers:
-        - name: catalogue 
-          image: mohan9676/catalogue:1.0.0 
---- 
-apiVersion: v1 
-kind: Service 
-metadata: 
-  name: catalogue-service 
-  namespace: dev 
-  labels: 
-    name: catalogue 
-    owner: mohan 
-spec: 
+    owner: mohan
+spec:
+  replicas: 1
   selector:
+    matchLabels:
+      name: catalogue
+      owner: mohan
+  template:
+    metadata:
+      labels:
+        name: catalogue
+        owner: mohan
+    spec:
+      containers:
+        - name: catalogue
+          image: mohan9676/catalogue:1.0.0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-service
+  namespace: dev
+  labels:
     name: catalogue
-    owner: mohan 
-  ports: 
+    owner: mohan
+spec:
+  selector:
+    name: catalogue   # Corrected selector
+    owner: mohan     # Corrected selector
+  ports:
     - name: catalogue-port
-      protocol: TCP 
-      port: 8080 
+      protocol: TCP
+      port: 8080
       targetPort: 8080
-  
