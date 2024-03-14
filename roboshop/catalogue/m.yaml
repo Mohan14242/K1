@@ -47,7 +47,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue
+  name: catalogue1
   namespace: dev
 data:
   MONGO: "true" # keep true in double quotes
