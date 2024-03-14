@@ -1,23 +1,23 @@
-apiVersion: apps/v1 
-kind: Deployment 
-metadata: 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: mongodb
-  namespace: dev 
-  labels: 
-    app: mongodb 
-    owner: mohan 
-spec: 
-  replicas: 1 
-  selector: 
-    matchLabels: 
-      app: mongodb 
-      owner: mohan 
-  template: 
-    metadata: 
-      labels:
-      app: mongodb 
-      owner: mohan 
-    spec: 
-      containers: 
-        - name: mongodb 
+  namespace: dev
+  labels:
+    app: mongodb
+    owner: mohan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+      owner: mohan
+  template:
+    metadata:
+      labels:    # Corrected field name
+        app: mongodb
+        owner: mohan
+    spec:
+      containers:
+        - name: mongodb
           image: mohan9676/mongodb:1.0.0
