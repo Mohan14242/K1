@@ -48,5 +48,5 @@ metadata:
   namespace: dev 
 data: 
   MONGO: "true"
-  MONGO_URL: "mongodb://cluster-ip:27017/cluster2"
+  MONGO_URL: "mongodb://cluster-ip:27017/user"
   REDIS_HOST: "cluster-ip1"
