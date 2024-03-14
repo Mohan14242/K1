@@ -3,36 +3,40 @@ kind: Deployment
 metadata:
   name: mongodb
   namespace: dev
-  labels:
+  labels: # these labels belong to deployment
     app: mongodb
-    owner: mohan
+    tier: db
+    project: roboshop
 spec:
   replicas: 1
   selector:
-    matchLabels:
+    matchLabels: # these labels should match with pod
       app: mongodb
-      owner: mohan
-  template:
+      tier: db
+      project: roboshop
+  template: # this is the pod definition
     metadata:
-      labels:    # Corrected field name
+      labels:
         app: mongodb
-        owner: mohan
+        tier: db
+        project: roboshop
     spec:
       containers:
-        - name: mongodb
-          image: mohan9676/mongodb:1.0.0
+      - name: mongodb
+        image: joindevops/mongodb:1.0.0
 ---
-apiVersion: v1 
-kind: Service 
-metadata: 
-  name: cluster-ip 
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
   namespace: dev
-spec: 
-  selector: 
-    app: mongodb 
-    owner: mohan 
-  ports: 
-    - name: mongodb-port 
-      protocol: TCP 
-      port: 27017 
-      targetPort: 27017
+spec:
+  selector:
+    app: mongodb
+    tier: db
+    project: roboshop
+  ports:
+  - name: mongodb-port
+    protocol: TCP
+    port: 27017 # this port belongs to service
+    targetPort: 27017 # this port belongs to container
