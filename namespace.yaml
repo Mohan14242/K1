@@ -1,4 +1,4 @@
 apiVersion: v1 
-kind: Namepace 
+kind: Namespace 
 metadata: 
   name: dev-space 
