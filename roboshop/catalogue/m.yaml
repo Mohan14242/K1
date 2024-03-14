@@ -44,7 +44,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue-data
+  name: catalogue
   namespace: dev
 data:
   MONGO: "true"
