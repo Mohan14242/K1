@@ -8,7 +8,7 @@ metadata:
     owner: mohan 
     kind: database 
 spec: 
-  replacas: 1
+  replicas: 1
   matchLabels:
     name: mongodb 
     kind: database 
