@@ -14,7 +14,6 @@ spec:
       owner: mohan 
   template: 
     metadata: 
-    - name: mongodb-database 
       app: mongodb 
       owner: mohan 
     spec: 
