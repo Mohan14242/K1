@@ -4,7 +4,7 @@ metadata:
   name: config-conf 
   namespace: dev 
 data: 
-nginx.conf: |
+  nginx.conf: |
     user www-data;
     worker_processes 4;
     pid /var/run/nginx.pid;
