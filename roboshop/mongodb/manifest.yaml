@@ -20,4 +20,4 @@ spec:
     spec: 
       containers: 
         - name: mongodb 
-          image: 
+          image: mohan9676/mongodb:1.0.0
