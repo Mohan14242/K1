@@ -24,7 +24,7 @@ spec:
           image: mohan9676/catalogue:1.0.0
           envFrom:
           - configMapRef:
-            name: catalogue-data
+              name: catalogue-data
 ---
 apiVersion: v1
 kind: Service
