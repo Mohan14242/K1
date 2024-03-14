@@ -16,7 +16,7 @@ spec:
     metadata:
       name: mohan-pod 
       labels:
-        name: frontend1 
+        name: frontend
         database: mysql 
     spec: 
       containers:
