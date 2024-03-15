@@ -1,0 +1,54 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: mysql 
+  namespace: dev 
+  labels: 
+    name: mysql 
+    app: database 
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels:
+      name: mysql 
+      app: database
+  template:
+    metadata: 
+      name: my-sql 
+      labels: 
+        name: mysql 
+        app: database 
+    spec: 
+      containers:
+        - name: my-sql 
+          image: joindevops/mysql:1.0.0 
+          envFrom:
+            - configMapRef:
+                name: mysql-configmap
+
+--- 
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: mysql 
+  namespace: dev 
+spec: 
+  selector: 
+    name: mysql 
+    app: database
+  ports:
+    - name: mysql-port 
+      protocol: TCP 
+      port: 8080 
+      targetPort: 8080 
+--- 
+apiVersion: v1 
+kind: ConfigMap
+metadata: 
+  name: mysql-configmap 
+  namespace: dev 
+data: 
+  MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # keep true in double quotes
+  MYSQL_DATABASE: "cities"
+  MYSQL_USER: "shipping"
+  MYSQL_PASSWORD: "RoboShop@1"
