@@ -13,10 +13,10 @@ spec:
       environment: dev 
   template: 
     metadata: 
-    name: mohan-nginx-pod 
-    labels: 
-      app: roboshop 
-      environment: dev 
+      name: mohan-nginx-pod 
+      labels: 
+        app: roboshop 
+        environment: dev 
     spec:
       containers:
         - name: fluentd 
