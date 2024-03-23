@@ -24,7 +24,7 @@ spec:
     requests:
       storage: 2Gi
 --- 
-apiVersion: apps/v1
+apiVersion: apps/v
 kind: Deployment 
 metadata: 
   name: mohan-nginx 
