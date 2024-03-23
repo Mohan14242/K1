@@ -51,8 +51,8 @@ spec:
             - containerPort: 80 
           volumeMounts: 
             - name: pvc 
-              mountPath: "usr/share/nginx/html"
+              mountPath: "/usr/share/nginx/html"  # Corrected mountPath
       volumes: 
         - name: pvc 
-          PersistentVolumeClaim: 
-            claimName: ebs-static-pvc
+          persistentVolumeClaim:  # Corrected persistentVolumeClaim
+            claimName: ebs-static-pvc  # Corrected claimName
