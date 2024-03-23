@@ -1,33 +1,35 @@
-apiVersion: apps/v1 
-kind: DaemonSet 
-metadata: 
-  name: fluentd 
-  namespace: kube-system
-  labels: 
-    app: roboshop 
-    environment: dev 
-spec: 
-  selector: 
-    matchLabels: 
-      app: roboshop 
-      environment: dev 
-  template: 
-    metadata: 
-      name: mohan-nginx-pod 
-      labels: 
-        app: roboshop 
-        environment: dev 
+apiVersion: apps/v1
+kind: DaemonSet # gaurentees one pod in every worker node
+metadata:
+  name: fluentd
+  namespace: kube-system #admin namespace
+  labels:
+    k8s-app: fluentd-logging
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      k8s-app: fluentd-logging
+      version: v1
+  template:
+    metadata:
+      labels:
+        k8s-app: fluentd-logging
+        version: v1
     spec:
       containers:
-        - name: fluentd 
-          image: quay.io/fluentd_elasticsearch/fluentd:v1.5.2 
-          resources: 
-            limits: 
-              memory: 200Mi
-            requests: 
-              cpu: 100m 
-              memory: 200Mi 
-      volumes: 
-        - name: varlog 
-          hostPath: 
-            path: /var/log 
+      - name: fluentd
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+      volumes:
+      - name: varlog
+        hostPath: # gives access to /var/log from the pod
+          path: /
