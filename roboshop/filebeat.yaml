@@ -48,7 +48,7 @@ spec:
           volumeMounts: 
             - name: nginx-logs 
               mountPath: var/log/nginx/
-        - name: filebeat-sidecar 
+        - name: filebeat-config
           image: docker.elastic.co/beats/filebeat:7.5.0 
           volumeMounts: 
             - name: nginx-logs 
