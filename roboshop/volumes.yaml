@@ -23,3 +23,36 @@ spec:
   resources:
     requests:
       storage: 2Gi
+--- 
+apiVersion: v1 
+kind: Deployment 
+metadata: 
+  name: mohan-nginx 
+  labels: 
+    app: roboshop 
+    environment: prod 
+spec: 
+  replicas: 10 
+  selector: 
+    matchLabels: 
+      app: roboshop 
+      environment: prod 
+  template: 
+    metadata: 
+      name: nginx_pod 
+      labels: 
+        app: roboshop 
+        environment: prod 
+    spec: 
+      containers:
+        - name: mohan-container 
+          image: nginx 
+          ports: 
+            - containerPort: 80 
+          volumeMounts: 
+            - name: pvc 
+              mountPath: "usr/share/nginx/html"
+      volumes: 
+        - name: pvc 
+          PersistentVolumeClaim: 
+            claimName: ebs-static-pvc
