@@ -77,3 +77,4 @@ chmod 700 get_helm.sh
 VALIDATE $? "Helm Installation"
 
 echo -e "$R Please logout and login again $N"
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.29"

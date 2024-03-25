@@ -1,0 +1,26 @@
+apiVersion: v1 
+kind: StorageClass 
+metadata: 
+  name: mohan-storage 
+  lables: 
+    app: roboshop 
+    environment: dev 
+provisioner: ebs.csi.aws.com 
+volumeBindingMode: WaitForFirstConsumeer 
+parameters: 
+  csi.storage.K8s.io/fstypes: xfs 
+  type: io1 
+  iopsPerGB: "50"
+  encrypted: "true"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: mohan-storage
+  resources:
+    requests:
+      storage: 1Gi
