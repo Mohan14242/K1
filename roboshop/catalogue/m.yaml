@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: catalogue
-          image: mohan9676/catalogue:1.0.0
+          image: joindevops/catalogue:1.0.0
           envFrom:
             - configMapRef:
                 name: config-map  # Corrected indentation
