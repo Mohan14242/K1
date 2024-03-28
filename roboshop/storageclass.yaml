@@ -1,22 +1,22 @@
-apiVersion: v1
-kind: StorageClass
-metadata:
-  name: mohan-storage
-  labels:
-    app: roboshop
-    environment: dev
-provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
-parameters:
-  csi.storage.k8s.io/fstype: xfs
-  type: io1
+apiVersion: v1 
+kind: StorageClass 
+metadata: 
+  name: mohan-storage 
+  lables: 
+    app: roboshop 
+    environment: dev 
+provisioner: ebs.csi.aws.com 
+volumeBindingMode: WaitForFirstConsumeer 
+parameters: 
+  csi.storage.K8s.io/fstypes: xfs 
+  type: io1 
   iopsPerGB: "50"
   encrypted: "true"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: myclaim2
+  name: myclaim
 spec:
   accessModes:
     - ReadWriteOnce
@@ -24,36 +24,37 @@ spec:
   resources:
     requests:
       storage: 1Gi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mohan-deployment
-  labels:
+--- 
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: mohan-deployment 
+  lables: 
     app: roboshop
-    env: dev
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: roboshop
-      env: dev
-  template:
-    metadata:
+    env: dev 
+spec: 
+  replicas: 3 
+  selector: 
+    matchLabels: 
+      app: roboshop 
+      env: dev 
+  template: 
+    metadata: 
       name: mohan-pod
-      labels:
-        app: roboshop
-        env: dev
-    spec:
-      containers:
-        - name: mohan-name
-          image: nginx
-          ports:
-            - containerPort: 80
+      lables: 
+        app: roboshop 
+        env: dev 
+    spec: 
+      containers: 
+        - name: mohan-name 
+          image: nginx 
+          ports: 
+            - containerport: 80 
           volumeMounts:
-            - name: myclaim1
-              mountPath: "/usr/share/nginx/html"
-      volumes:
-        - name: myclaim1
-          persistentVolumeClaim:
-            claimName: myclaim2
+          - name: myclaim1 
+            mountPath: "/usr/share/nginx/html"
+      volumes: 
+        name: myclaim1
+        persistentVolumeClaim: 
+          claimName: myclaim
+
