@@ -3,11 +3,11 @@ kind: StatefulSet
 metadata:
   name: example-statefulset
 spec:
-  replicas: 10
+  replicas: 3
+  serviceName: "nginx"
   selector:
     matchLabels:
       app: nginx
-  serviceName: "nginx"
   template:
     metadata:
       labels:
@@ -19,17 +19,7 @@ spec:
         ports:
         - containerPort: 80
           name: http
-        volumeMounts:
-        - name: nginx-data
-          mountPath: /usr/share/nginx/html
-  volumeClaimTemplates:
-  - metadata:
-      name: nginx-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+
 ---
 apiVersion: v1
 kind: Service
