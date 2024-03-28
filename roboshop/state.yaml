@@ -20,16 +20,6 @@ spec:
         - containerPort: 80
           name: http
         volumeMounts:
-        - name: nginx-data
-          mountPath: /usr/share/nginx/html
-  volumeClaimTemplates:
-  - metadata:
-      name: nginx-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
 --- 
 apiVersion: v1
 kind: Service
