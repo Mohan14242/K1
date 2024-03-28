@@ -31,16 +31,16 @@ spec:
         requests:
           storage: 1Gi
 --- 
-apiVersion: v1 
-kind: Service 
-metadata: 
-  name: nginx-less 
-spec: 
-  ClusterIp: None 
-  selector: 
-    app: nginx 
-  ports: 
-    - name: name of the port 
-      protocol: TCP 
-      port: 80 
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-less
+spec:
+  clusterIP: None
+  selector:
+    app: nginx
+  ports:
+    - name: name of the port
+      protocol: TCP
+      port: 80
       targetPort: 80
